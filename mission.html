@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>스마트 과학관</title>
+
+    <link href='css/common.css' rel="stylesheet" type="text/css">
+    <link href='css/index.css' rel="stylesheet" type="text/css">
+    <script src='js/jquery-3.1.1.min.js'></script>
+    
+    <script>
+        $(document).ready(function() {
+            $(document).ready(function() {
+                document.getElementsByTagName("html")[0].style.visibility = "visible";
+            });
+            $(".backBtn").click(function() {
+                window.history.back();
+            });
+
+            let searchParams = new URLSearchParams(window.location.search);
+
+            let pk = searchParams.get('id');
+            
+            var token = '';
+
+            var str = 'anonymous';
+
+            var url = "http://59.19.102.174:8888/api/v1/token-auth/";
+
+            fetch(url,{
+                method: "POST",
+                body: JSON.stringify({
+                    username: str,
+                    password: str
+                }),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+            }).then((response) => response.json())
+              .then(response => {
+                // console.log(response);
+                token = 'JWT ' + response.access;
+                $.ajax({
+                    url: 'http://59.19.102.174:8888/api/v1/event/' + pk + '/',
+                    method: "GET",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Authorization', '{{ token }}');
+                    },
+                    dataType: "json",
+                }).done(function(data){
+                    console.log(data);
+                    $('#title').text(data['name']);
+                    $.each(data['inner_exhibition'], function(idx, option){
+                        let cls = localStorage[option['pk']] ? "acquired" :  "noAcquired";
+                        $('#innerList').append(
+                            '<li class="' + cls +'">' +
+                                '<span></span>' +
+                                '<p>' + option['name'] +'</p>' +
+                            '</li>'
+                        )
+                    })
+                })
+                })
+        });
+
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="utill">
+            <button class="backBtn"><img src='images/back.png'></button>
+            <h2 id="title">미션 이벤트</h2>
+        </div>
+        <div class="mission utillPage">
+            <div class="txt">
+                <div class="inner">
+                    <p>앱을 켜신 후 아래의 전시관을<br>
+                        관람하시면 <span>선물을 드려요.</span>
+                    </p>
+                </div>
+            </div>
+            <div class="stamp">
+                <div class="inner">
+                    <ul id = "innerList">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

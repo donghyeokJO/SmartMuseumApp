@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>스마트 과학관</title>
+
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.1.1.min.js"></script>
+
+    <!-- 주소창 등의 웹 브라우저 UI를 표시하지 않기 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 상태 바의 스타일을 지정 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- 홈 화면에서 표시되는 앱 이름을 지정 -->
+    <meta name="apple-mobile-web-app-title" content="Timer">
+    <!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+    <link rel="apple-touch-icon" href="icons/icon-152x152.png">
+    
+    <script>
+        $(document).ready(function() {
+            document.getElementsByTagName("html")[0].style.visibility = "visible";
+        });
+    </script>
+    
+    <script>
+        setTimeout('move_page()', 5000); 
+
+        function move_page() {
+            location.href = "./main.html"
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="intro">
+            <div class="top">
+                <img src="images/intro_wave.svg" class="wave">
+            </div>
+            <div class="logo">
+                <img src="images/intro_logo.png">
+            </div>
+            <div class="middle">
+                <img src="images/intro-middle.svg">
+            </div>
+            <div class="bottom">
+                <img src="images/intro_bottom01.svg">
+                <img src="images/intro_bottom02.svg">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>스마트 과학관</title>
+
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            document.getElementsByTagName("html")[0].style.visibility = "visible";
+        });
+    </script>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <nav>
+            <ul>
+                <li class="active">
+                    <a href="./main.html">
+                        <img src='images/nav01.svg' class="disable">
+                        <img src='images/nav01_on.svg' class="on">
+                        <p>홈</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./current_location.html">
+                        <img src='images/nav02.svg' class="disable">
+                        <img src='images/nav02_on.svg' class="on">
+                        <p>현재위치</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./preview.html">
+                        <img src='images/nav03.svg' class="disable">
+                        <img src='images/nav03_on.svg' class="on">
+                        <p>관람</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./event.html">
+                        <img src='images/nav04.svg' class="disable">
+                        <img src='images/nav04_on.svg' class="on">
+                        <p>이벤트</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="main naviPage">
+            <div class="top">
+                <img src='images/main-top.jpg' class="bg">
+                <img src='images/main-logo.png' class="logo">
+            </div>
+            <div class="quick">
+                <div class="inner">
+                    <ul>
+                        <li>
+                            <a href="./info.html">
+                                <p>관람안내</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./exhibition.html">
+                                <p>전시관 안내</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="./location.html">
+                                <p>오시는길</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a href="./preview.html" class="previewBtn">관람시작</a>
+        </div>
+    </div>
+</body></html>

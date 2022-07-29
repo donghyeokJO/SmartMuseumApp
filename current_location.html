@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>스마트 과학관</title>
+
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-3.1.1.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            document.getElementsByTagName("html")[0].style.visibility = "visible";
+        });    
+    </script>
+    <script>
+        window.onload = function(){
+            var uuid = "{{ uuid }}";
+
+            console.log(uuid);
+            $.ajax({
+                url: "http://59.19.102.174:8888/api/v1/beacon?uuid=" + uuid,
+                method: "GET",
+                dataType: "json",
+            }).done(function(data){
+                console.log(data);
+                $('#exhibition_info').text(data['inner_exhibition']['exhibition']['floor_ko'] +  ', ' + data['inner_exhibition']['name'] + "입니다.");
+                $('#exhibition_img').attr('src', 'http://59.19.102.174:8888' + data['inner_exhibition']['exhibition']['drawing_image']);
+                $('#loc').css('left', data['inner_exhibition']['x_coordinate'] + '%').css('top', data['inner_exhibition']['y_coordinate'] + '%');
+                $('#location_txt').css('left', data['inner_exhibition']['x_coordinate'] - 13 + '%').css('top', data['inner_exhibition']['y_coordinate'] - 20 + '%');
+            })
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="utill">
+            <h2>현재위치</h2>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="./main.html">
+                        <img src='images/nav01.svg' class="disable">
+                        <img src='images/nav01_on.svg' class="on">
+                        <p>홈</p>
+                    </a>
+                </li>
+                <li  class="active">
+                    <a href="./current_location.html">
+                        <img src='images/nav02.svg' class="disable">
+                        <img src='images/nav02_on.svg' class="on">
+                        <p>현재위치</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./preview.html">
+                        <img src='images/nav03.svg' class="disable">
+                        <img src='images/nav03_on.svg' class="on">
+                        <p>관람</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./event.html">
+                        <img src='images/nav04.svg' class="disable">
+                        <img src='images/nav04_on.svg' class="on">
+                        <p>이벤트</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="current utillPage naviPage">
+            <div class="map">
+                <!-- <img id = "exhibition_img" src="{{url_for('static', filename='images/map.jpg')}}"> -->
+                <img id = "exhibition_img">
+                <span id = "location_txt">현재위치</span>
+                <div class = "location" id = "loc"></div>
+                <!-- <div class = "location" id = "loc">현재위치</div> -->
+            </div>
+            <h5>현재위치는<br><span id = "exhibition_info">확인되지 않습니다.</span></h5>
+            <!-- <h5>현재위치는<br><span id = "exhibition_info">1층, 고래와 바다이야기</span>관입니다.</h5> -->
+        </div>
+    </div>
+</body></html>
