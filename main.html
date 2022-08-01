@@ -43,9 +43,7 @@
     <script>
         function blescan() {
             navigator.bluetooth.requestDevice({
-                filters: [{
-                    acceptAllAdvertisements: true
-                }]
+                acceptAllDevices: true,
             })
                 .then(device => {
                     console.log(device)
