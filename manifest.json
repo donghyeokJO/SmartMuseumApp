@@ -1,0 +1,15 @@
+{
+    "background_color": "none",
+    "description": "국립수산과학관 공식 앱",
+    "dir": "ltr",
+    "display": "standalone",
+    "name": "국립수산과학관",
+    "orientation": "any",
+    "scope": "/",
+    "short_name": "FSM",
+    "start_url": "/",
+    "theme_color": "none",
+    "categories": [],
+    "screenshots": [],
+    "shortcuts": []
+  }
