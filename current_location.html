@@ -18,6 +18,17 @@
     <meta name="apple-mobile-web-app-title" content="국립수산과학원">
     <!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
     <link rel="apple-touch-icon" href="icons/icon-152x152.png">
+    <!-- 웹 앱 매니페스트를 읽어 들이기 -->
+    <link rel="manifest" href="manifest.json">
+    <!-- 서비스 워커를 등록 -->
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+        .then((reg) => {
+        console.log('서비스 워커가 등록됨.', reg);
+        });
+    }
+    </script>
 
     <script src="js/jquery-3.1.1.min.js"></script>
 
