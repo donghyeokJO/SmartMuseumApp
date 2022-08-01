@@ -44,7 +44,7 @@
             console.log(uuid);
             // console.log('{{ mac_address }}')
             $.ajax({
-                url: "http://59.19.102.174:8888/api/v1/beacon?uuid=" + uuid,
+                url: "https://59.19.102.174:8888/api/v1/beacon?uuid=" + uuid,
                 method: "GET",
                 dataType: "json",
             }).done(function(data){
@@ -55,7 +55,7 @@
             });
 
             $.ajax({
-                url: "http://59.19.102.174:8888/api/v1/beacon/log/?uuid=" + uuid,
+                url: "https://59.19.102.174:8888/api/v1/beacon/log/?uuid=" + uuid,
                 method: "POST",
                 data: {
                     sex: localStorage.gender,

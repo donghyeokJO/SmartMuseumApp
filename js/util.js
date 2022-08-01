@@ -1,7 +1,7 @@
 function get_token(token){
     var str = 'anonymous';
 
-    var url = "http://59.19.102.174:8888/api/v1/token-auth/";
+    var url = "https://59.19.102.174:8888/api/v1/token-auth/";
 
     fetch(url,{
         method: "POST",

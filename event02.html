@@ -48,7 +48,7 @@
             let weekday = ['일', '월', '화', '수', '목', '금', '토']
 
             $.ajax({
-                url: 'http://59.19.102.174:8888/api/v1/event/' + pk + '/',
+                url: 'https://59.19.102.174:8888/api/v1/event/' + pk + '/',
                 method: "GET",
                 beforeSend: function (xhr) {
                     xhr.setRequestHeader('Authorization', '{{ token }}');
