@@ -39,6 +39,8 @@
     </script>
     <script>
         window.onload = function(){
+            var device = MediaDeviceInfo.deviceId;
+            $('#location_txt').text(device);
             var uuid = "{{ uuid }}";
 
             console.log(uuid);
