@@ -40,20 +40,9 @@
         });
     </script>
 
-    <script>
-        function blescan() {
-            navigator.bluetooth.requestDevice({
-                acceptAllDevices: true,
-            })
-                .then(device => {
-                    console.log(device)
-                })
-        }
-    </script>
-
 </head>
 
-<body onclick = "blescan()">
+<body>
     <div class="wrap">
         <nav>
             <ul>

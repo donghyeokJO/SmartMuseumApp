@@ -35,7 +35,7 @@
 
     <script>
         $(document).ready(function() {
-            if(localStorage.surveyDone){
+            if(localStorage.surveyDone && localStorage.gender !== null && localStorage.age !== null){
                 window.location.href = './preview02.html';
             }
             else{
