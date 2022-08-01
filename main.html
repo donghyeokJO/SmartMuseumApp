@@ -42,7 +42,7 @@
 
     <script>
         function blescan() {
-            navigator.bluetooth.getDevices()
+            navigator.bluetooth.requestDevice()
                 .then(device => {
                     console.log(device)
                 })
