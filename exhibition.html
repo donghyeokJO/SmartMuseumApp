@@ -45,7 +45,7 @@
 
             var str = 'anonymous';
 
-            var url = "https://59.19.102.174:8888/api/v1/token-auth/";
+            var url = "https://locslab.com/api/v1/token-auth/";
 
             fetch(url,{
                 method: "POST",
@@ -71,7 +71,7 @@
                 var pk = payload.user_id;
 
                 $.ajax({
-                    url: "https://59.19.102.174:8888/api/v1/museum/inner_exhibition/list/",
+                    url: "https://locslab.com/api/v1/museum/inner_exhibition/list/",
                     method: "GET",
                     dataType: "json",
                     beforeSend: function (xhr) {

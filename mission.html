@@ -51,7 +51,7 @@
 
             var str = 'anonymous';
 
-            var url = "https://59.19.102.174:8888/api/v1/token-auth/";
+            var url = "https://locslab.com/api/v1/token-auth/";
 
             fetch(url,{
                 method: "POST",
@@ -68,7 +68,7 @@
                 // console.log(response);
                 token = 'JWT ' + response.access;
                 $.ajax({
-                    url: 'https://59.19.102.174:8888/api/v1/event/' + pk + '/',
+                    url: 'https://locslab.com/api/v1/event/' + pk + '/',
                     method: "GET",
                     beforeSend: function (xhr) {
                         xhr.setRequestHeader('Authorization', '{{ token }}');
