@@ -59,7 +59,7 @@
                 console.log(data);
                 $('#title').text(data['name']);
                 $('#evt_title').text(data['name']);
-                $('#img').attr('src', 'http://59.19.102.174:8888' + data['image']);
+                $('#img').attr('src', 'https://locslab.com' + data['image']);
                 var start = new Date(data['start_dt']);
                 var end = new Date(data['end_dt']);
                 $('#date').text(moment(start).format("YYYY-MM-DD") + '(' + weekday[start.getDay()] + ')' + ' ~ ' +  moment(end).format("YYYY-MM-DD") + '(' + weekday[end.getDay()] + ')');
