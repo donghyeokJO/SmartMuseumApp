@@ -75,7 +75,7 @@
                     method: "GET",
                     dataType: "json",
                     beforeSend: function (xhr) {
-                        xhr.setRequestHeader('Authorization', 'token');
+                        xhr.setRequestHeader('Authorization', token);
                     },
                 }).done(function(data){
                     console.log(data);
