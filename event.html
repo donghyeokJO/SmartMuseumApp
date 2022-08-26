@@ -40,7 +40,7 @@
 
             var str = 'anonymous';
 
-            var url = "https://locslab.com/api/v1/token-auth/";
+            var url = "https://smartseas.kr/api/v1/token-auth/";
 
             fetch(url,{
                 method: "POST",
@@ -57,7 +57,7 @@
                 // console.log(response);
                 token = 'JWT ' + response.access;
                 $.ajax({
-                    url : "https://locslab.com/api/v1/event",
+                    url : "https://smartseas.kr/api/v1/event",
                     method: "GET",
                     beforeSend: function (xhr) {
                         xhr.setRequestHeader('Authorization', token);
@@ -70,7 +70,7 @@
                             $('#eventList').append(
                                 '<div>' + 
                                     '<a href="/event/detail?id=' + option['pk'] + '">' +
-                                        '<img src=' + '"https://locslab.com' + option['image'] + '"">' +
+                                        '<img src=' + '"https://smartseas.kr' + option['image'] + '"">' +
                                         '<p>' + option['name'] + '</p>'+
                                     '</a>'+
                                 '</div>'

@@ -45,18 +45,18 @@
             console.log(uuid);
             // console.log('{{ mac_address }}')
             $.ajax({
-                url: "https://locslab.com/api/v1/beacon?uuid=" + uuid,
+                url: "https://smartseas.kr/api/v1/beacon?uuid=" + uuid,
                 method: "GET",
                 dataType: "json",
             }).done(function(data){
                 $('#exhibition_name').text(data['inner_exhibition']['name']);
                 $('#exhibition_detail').text(data['inner_exhibition']['explanation']);
-                $('#exhibition_img').attr('src', 'https://locslab.com' + data['inner_exhibition']['image']);
+                $('#exhibition_img').attr('src', 'https://smartseas.kr' + data['inner_exhibition']['image']);
                 pk = data['inner_exhibition']['pk'];
             });
 
             $.ajax({
-                url: "https://locslab.com/api/v1/beacon/log/?uuid=" + uuid,
+                url: "https://smartseas.kr/api/v1/beacon/log/?uuid=" + uuid,
                 method: "POST",
                 data: {
                     sex: localStorage.gender,

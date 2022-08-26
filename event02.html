@@ -49,7 +49,7 @@
             let weekday = ['일', '월', '화', '수', '목', '금', '토']
 
             $.ajax({
-                url: 'https://locslab.com/api/v1/event/' + pk + '/',
+                url: 'https://smartseas.kr/api/v1/event/' + pk + '/',
                 method: "GET",
                 beforeSend: function (xhr) {
                     xhr.setRequestHeader('Authorization', '{{ token }}');
@@ -59,7 +59,7 @@
                 console.log(data);
                 $('#title').text(data['name']);
                 $('#evt_title').text(data['name']);
-                $('#img').attr('src', 'https://locslab.com' + data['image']);
+                $('#img').attr('src', 'https://smartseas.kr' + data['image']);
                 var start = new Date(data['start_dt']);
                 var end = new Date(data['end_dt']);
                 $('#date').text(moment(start).format("YYYY-MM-DD") + '(' + weekday[start.getDay()] + ')' + ' ~ ' +  moment(end).format("YYYY-MM-DD") + '(' + weekday[end.getDay()] + ')');

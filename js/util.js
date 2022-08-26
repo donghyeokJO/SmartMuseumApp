@@ -1,7 +1,7 @@
 function get_token(token){
     var str = 'anonymous';
 
-    var url = "https://locslab.com/api/v1/token-auth/";
+    var url = "https://smartseas.kr/api/v1/token-auth/";
 
     fetch(url,{
         method: "POST",
